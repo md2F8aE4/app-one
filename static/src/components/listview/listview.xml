@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+<t t-name="app_one.ListView">
+
+<div class="app_listview_container">
+
+    <div class="app_listview_card mb-4">
+        <h2 class="app_listview_title">
+            Property List View
+        </h2>
+
+        <p class="text-muted">
+            Property Management System
+        </p>
+    </div>
+
+    <div class="app_listview_card">
+        <div class="table-responsive">
+
+            <table class="o_list_table table table-hover">
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Selling Price</th>
+                        <th>Garden</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <t t-if="state.loading">
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">Loading properties...</td>
+                        </tr>
+                    </t>
+                    <t t-elif="state.records.length">
+                        <t t-foreach="state.records" t-as="property" t-key="property.id">
+                            <tr>
+                                <td><t t-esc="property.name"/></td>
+                                <td><t t-esc="property.description"/></td>
+                                <td><t t-esc="property.selling_price"/></td>
+                                <td><t t-esc="property.garden ? 'Yes' : 'No'"/></td>
+                            </tr>
+                        </t>
+                    </t>
+                    <t t-else="">
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">No property data found.</td>
+                        </tr>
+                    </t>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+</t>
+
+</templates>

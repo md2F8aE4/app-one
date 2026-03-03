@@ -1,15 +1,16 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+import requests
 
 class Property(models.Model):
     _name = 'property'
     _description = 'Property' #for the chatter
     _inherit = ['mail.thread','mail.activity.mixin']
 
-    name = fields.Char(required=True)
+    name = fields.Char()
     ref = fields.Char(readonly=True,default='New')#for sequence
     description = fields.Text()
-    postcode = fields.Char(required=True)
+    postcode = fields.Char()
     date_available = fields.Date(tracking=True) #for the chatter
     expected_price = fields.Float()
     selling_price = fields.Float()
@@ -92,6 +93,16 @@ class Property(models.Model):
                 rec.is_late = True
 
 
+    def action_property_xlsx_report(self):
+     return self.property_xlsx_report()
+
+
+    def property_xlsx_report(self):
+     return {
+        'type': 'ir.actions.act_url',
+        'url': f'/property/excel/report/{self.env.context.get("active_ids")}',
+        'target': 'new',
+    }
     #to write sequence
     @api.model
     def create(self, vals_list):
@@ -147,9 +158,18 @@ class Property(models.Model):
     #     return res
 
     # One2manyLines
+
+
+
+
 class PropertyLine(models.Model):
     _name = 'property.line'
 
     property_id = fields.Many2one('property')
     area =fields.Float()
     description = fields.Char()
+
+
+
+
+

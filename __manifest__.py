@@ -1,6 +1,6 @@
 {
     'name':"Property",
-    'auther':"Mohamed Hisham",
+    'auther':"abdelrahman ahmed ",
     'category':'',
     'version':'17.0.0.1.0',
     'depends':['base','sale_management','account','mail'],
@@ -14,12 +14,19 @@
         'views/sale_order_view.xml',
         'views/building_view.xml',
         'views/property_history_view.xml',
+        'views/account_move_view.xml',
         'wizard/change_state_wizard_view.xml',
         'reports/property_report.xml',
 
     ],
     'assets':{
-        'web.assets_backend':['app_one/static/src/css/property.css']
+        'web.assets_backend':[
+            'app_one/static/src/css/property.css',
+            'app_one/static/src/components/listview/listview.css',
+            'app_one/static/src/components/listview/listview.xml',
+            'app_one/static/src/components/listview/listview.js']
     },
     'application':True,
+    'installable': True,
+
 }

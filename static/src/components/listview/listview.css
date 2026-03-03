@@ -1,0 +1,72 @@
+/* =============================
+   Odoo List View Soft Override
+============================= */
+
+/* Main List View Container */
+.o_list_view {
+    background: #f8fafc !important;
+    padding: 20px;
+}
+
+/* Table Container */
+.o_list_table {
+    border-radius: 14px;
+    overflow: hidden;
+    background: white;
+    box-shadow:
+        0 3px 10px rgba(0,0,0,0.04);
+}
+
+/* Table Header */
+.o_list_table thead {
+    background: #6421bb00;
+}
+
+.o_list_table thead th {
+    padding: 14px;
+    font-weight: 600;
+    color: #475569;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Table Rows */
+.o_list_table tbody tr {
+    transition: 0.25s ease;
+}
+
+.o_list_table tbody tr:hover {
+    background: #f8fafc !important;
+}
+
+/* Table Cells */
+.o_list_table td {
+    padding: 14px;
+    border-bottom: 1px solid #edf2f7;
+    color: #334155;
+}
+
+/* Column Header Text */
+.o_list_table .o_list_header {
+    font-size: 14px;
+    letter-spacing: 0.3px;
+}
+
+/* Checkbox Column */
+.o_list_record_selector input {
+    transform: scale(1.1);
+}
+
+/* Action Buttons Inside List */
+.o_list_view .btn {
+    border-radius: 8px !important;
+}
+
+/* Scrollbar Styling */
+.o_list_view::-webkit-scrollbar {
+    width: 8px;
+}
+
+.o_list_view::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}

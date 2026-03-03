@@ -8,6 +8,7 @@ class Building(models.Model):
     _inherit = ['mail.thread','mail.activity.mixin']
     _rec_name = 'code' # to show in the bar
 
+
     no = fields.Integer()
     code = fields.Char()
     description = fields.Text()
